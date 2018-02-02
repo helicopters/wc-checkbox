@@ -1,17 +1,24 @@
 <style>
-	
+.container {
+	padding: 20px;
+
+}
 </style>
 <template>
-	<wc-checkbox v-model="value">
-		checkbox
-	</wc-checkbox>
+	<div class="container">
+		
+		<wc-checkbox v-model="value">
+			checkbox
+		</wc-checkbox>		
+	</div>
+
 </template>
 <script>
 	export default {
 		name: 'App',
 		data () {
 			return {
-				value: false
+				value: 1
 			}
 		}
 	}

@@ -14,7 +14,7 @@ Vue.use(wcCheckbox);
 ```
 
 ```html
-<wc-chcekbox v-model="check">
+<wc-checkbox v-model="check">
 	label text
 </wc-checkbox>
 ```
@@ -23,7 +23,7 @@ Vue.use(wcCheckbox);
 ## Config
 ```shell
 v-model="check"	获取当前 checkbox 的状态, Boolean
-disabled	设置当前 checkbox 是否可选, 默认 true
+disabled	设置当前 checkbox 是否可选, 默认 false
 shape	设置当前 checkbox 显示为圆形还是正方形, 默认 圆形
 active	设置当前 checkbox 未选中状态的边框颜色, 和选中状态的背景颜色, 默认为蓝色
 ```
