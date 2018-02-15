@@ -136,12 +136,45 @@
 			},
 			active: {
 				default: '#20a0ff'
+			},
+
+			/*以下字段控制最多可选个数*/
+			max: {
+				default: 0,
+			},
+			data: {
+				default () {
+					return [];
+				}
+			},
+			item: {
+				default: ''
 			}
 		},
 		methods: {
 			toggle () {
+
 				let v = !this.value;
-				this.$emit('input', v);
+
+				/* 如果用户是对已经选中的取消选中, 则不需要进行这个操作*/
+				if (!v) {
+					this.$emit('input', v);
+				} else {
+					/* 说明用户设置了最多可选的个数*/
+					if (this.item && this.data.length && this.max) {
+						let checkedLen = this.data.filter(item => {
+							return item[this.item]
+						}).length;
+
+						if (checkedLen == this.max) {
+							this.$emit('max', this.max);
+							return false;
+						}
+					}
+					this.$emit('input', v);				
+				}
+				
+				
 			}
 		}
 	}
